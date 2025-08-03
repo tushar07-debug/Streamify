@@ -19,7 +19,11 @@ export const upsertStreamUser = async (userData) => {
     }
 };
 
-//TODO: do it later
 export const  generateStreamToken = (userId) => {
-
+    try{
+        const userIdStr = userId.toString();
+        return streamclient.createToken(userIdStr);
+    }catch(error){
+        console.log("Error generating stream token : ", error);
+    }
 }
